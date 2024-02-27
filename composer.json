@@ -13,7 +13,7 @@
         "php": ">=8.2",
         "ext-mongodb": "*",
         "symfony/messenger": "^7.0",
-        "mongodb/mongodb": "v1.15.x-dev"
+        "mongodb/mongodb": "^1.15"
     },
     "autoload": {
         "psr-4": {
