@@ -1,0 +1,30 @@
+{
+    "name": "andreypostal/symfony-mongodb-messenger",
+    "description": "Symfony Mongodb Messenger",
+    "type": "composer-plugin",
+    "keywords": [ "symfony", "messenger", "mongo", "mongodb", "transport" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Postal"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "ext-mongodb": "*",
+        "symfony/messenger": "^7.0",
+        "mongodb/mongodb": "v1.15.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Andrey\\Symfony\\Messenger\\Mongo\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "tests/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "11.1.x-dev"
+    },
+    "minimum-stability": "dev"
+}
