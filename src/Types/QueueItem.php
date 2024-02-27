@@ -31,7 +31,7 @@ final readonly class QueueItem
     public function toArray(): array
     {
         return [
-            '_id' => $this->_id,
+            '_id' => $this->_id ?? new ObjectId(),
             'body' => $this->body,
             'headers' => $this->headers,
             'queueName' => $this->queueName,

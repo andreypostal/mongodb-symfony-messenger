@@ -55,15 +55,12 @@ readonly class ReceiverAdapter extends BaseAdapter implements MongoReceiverAdapt
                     '$in' => $queueNames,
                 ],
                 'availableAt' => [
-                    '$gte' => time(),
+                    '$lte' => time(),
                 ],
                 'deliveredAt' => null,
             ],
             options: [
                 'cursorType' => $this->config->tailable ? Find::TAILABLE_AWAIT : Find::NON_TAILABLE,
-                'sort' => [
-                    'available_at' => 1,
-                ],
                 'maxAwaitTimeMS' => self::MAX_AWAIT_TIME,
             ],
         );
@@ -76,14 +73,11 @@ readonly class ReceiverAdapter extends BaseAdapter implements MongoReceiverAdapt
                 'queueName' => $this->config->queueName,
                 'deliveredAt' => null,
                 'availableAt' => [
-                    '$gte' => time(),
+                    '$lte' => time(),
                 ],
             ],
             options: [
                 'cursorType' => $this->config->tailable ? Find::TAILABLE_AWAIT : Find::NON_TAILABLE,
-                'sort' => [
-                    'available_at' => 1,
-                ],
                 'maxAwaitTimeMS' => self::MAX_AWAIT_TIME,
             ],
         );

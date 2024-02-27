@@ -26,7 +26,7 @@ readonly class MongoReceiver implements ListableReceiverInterface, QueueReceiver
         $cursor = $this->adapter->get();
         while ($cursor->valid() && !$cursor->isDead()) {
             yield $this->envelope(
-                document: $cursor->current(),
+                document: (array) $cursor->current(),
             );
 
             $cursor->next();
@@ -91,8 +91,8 @@ readonly class MongoReceiver implements ListableReceiverInterface, QueueReceiver
         try {
             return $this->stamp(
                 envelope: $this->serializer->decode([
-                    $document['headers'],
-                    $document['body'],
+                    'headers' => (array) $document['headers'],
+                    'body' => $document['body'],
                 ]),
                 id: (string) $id,
             );
