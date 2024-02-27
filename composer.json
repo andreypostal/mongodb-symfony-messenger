@@ -1,7 +1,7 @@
 {
     "name": "andreypostal/symfony-mongodb-messenger",
     "description": "Symfony Mongodb Messenger",
-    "type": "composer-plugin",
+    "type": "library",
     "keywords": [ "symfony", "messenger", "mongo", "mongodb", "transport" ],
     "license": "MIT",
     "authors": [
